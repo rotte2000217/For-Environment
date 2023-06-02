@@ -1,0 +1,37 @@
+.gallery_container{
+    display:grid;
+    grid-template-columns :repeat (3,1fr);
+}
+
+.gallery_container article{
+    border: 1rem solid transparent;
+    transition: var (--transition);
+
+}
+
+.gallery_container article:hover {
+    border-color : var(--color-gray-500);
+}
+
+@media screen and (max-width: 1024px){ /* for tablets */
+    .gallery_container{
+        grid-template-columns :1fr 1fr;
+        gap:2rem;
+    }
+    
+    .gallery_container article{
+        border: 0;
+           
+    }
+
+}
+
+
+
+/* media queries (for small screens)  should be max-width: 600px but as desktop browser does not contract that much 700 was typed in  */
+@media screen and (max-width: 700px){ 
+    .gallery_container{
+        grid-template-columns :1fr;
+        gap:1rem;
+    }
+}

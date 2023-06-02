@@ -1,0 +1,74 @@
+.about_section-image{
+    border-radius : 50%; /* border radius 50% to make a perfect circle*/
+    overflow : hidden;
+    transform : skew(15deg); /* stretches the image to opposite corners. 15 degrees */
+    transition:var(--transition); /* for hover effect */
+
+}
+
+.about_section-image:nth-child(2){ /* that will be the second element (2nd .about_section-image) */
+   
+    transform : skew(-15deg); /* stretches the image to opposite corners. 15 degrees */
+}
+
+
+.about_section-image:hover {
+    transform:skew(0);
+}
+
+.about_section-content h1{
+    margin-bottom:2rem;
+}
+
+.about_section-content p{
+    margin-bottom:1rem;
+}
+
+.about_story-container , .about_mission-container{ /* this style is same for 'about_story-container'  and 'about_mission-container'    */
+    display : grid;
+    grid-template-columns : 40% 50%;
+    gap: 10%;
+}
+
+
+.about_vision-container{ 
+    display : grid;
+    grid-template-columns : 50% 40%;
+    gap: 10%;
+}
+
+@media screen and (max-width: 1024px){ /* for tablets */
+
+
+    .about_section-image{
+       width : 60%;
+    }
+    .about_section-content h1{
+        margin-bottom:1.2 rem;
+    }
+    .about_story-container ,.about_vision-container, .about_mission-container{ /* this style is same for 'about_story-container'  and 'about_mission-container'    */
+        display : grid;
+        grid-template-columns : 1fr;
+        gap: 3rem;
+    }
+    
+.about_vision .about_section-image{
+    grid-row:1; /*  places the image in the first row, instead of the default 2nd row according to the normal flow of the code  */
+
+}
+
+}
+
+
+/* media queries (for small screens)  should be max-width: 600px but as desktop browser does not contract that much 700 was typed in  */
+@media screen and (max-width: 700px){ 
+    .about_section-image{
+       width : 80%;
+       margin-inline:auto;
+    }
+    
+    .about_story-container ,.about_vision-container, .about_mission-container{ /* this style is same for 'about_story-container'  and 'about_mission-container'    */
+      gap: 2rem;
+    }
+
+}

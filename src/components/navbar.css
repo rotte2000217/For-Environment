@@ -1,0 +1,129 @@
+nav {
+    height: 5rem;
+    width :100%; /*  100% of view port  or screen or browser */
+   background : var(--color-primary); 
+    display : grid; /* to place the iitems in the center */
+    place-items:center;
+  position : fixed ; /* then it wont move */
+  
+   top:0;
+   left:0;
+   z-index:99; /* so that it sits on top of everything else on the page */
+
+}
+/*only shows on medium and small screens */
+.nav_toggle-btn{
+    display: none;
+}
+.nav_container {
+    height:100%;
+   /* width : 100%;*/
+    display:flex;
+    justify-content : space-between;
+    align-items: center;
+    position:relative;
+}
+
+.logo {
+    width: 7rem;
+    height : auto ; /*10rem; */
+    /*display:inline-flex;*/
+/*display: block;  /* display:block makes the logo small and at top left */
+
+}
+
+
+.nav_links{
+ display : flex; /* makes the navlinks (ul) display its items in one line . otherwise by default items will be displayed one below the other*/
+gap: 1rem; /*3.5rem; /* sets the gap between items (of ul) */
+align-items: center;
+}
+.nav_links li a{
+    background-color: var(--color-primary);
+    height:100%;
+    width:100%
+    display flex;
+    align-items :center;
+    padding : 1rem 5rem 1rem 3rem;
+
+}
+
+.nav_links a{
+    transition : var(--transition) ; /* how color changes when mouse hover . for a smooth transition  */
+}
+.nav_links a:hover{
+color:var(--color-secondary);    
+}
+
+.active-nav{
+    position : relative;
+}
+.active-nav::after{ /* for little diamond displayed on click */
+    content:'';
+    display:block;
+    width:1.2rem;
+    height:1.2rem;
+    background:  var(--color-primary); /* red; */
+    position:absolute;
+    left: calc(50% - 0.6rem) ; 
+    transform : rotate(45deg);
+    margin-top:0.9rem;
+}
+
+/* MEDIA QUERIES (medium and small screens) */
+@media screen and (max-width: 1024px){
+  /*  nav{
+        background:red;
+    }*/
+    .nav_toggle-btn{
+       
+        display:inline-block;
+        background:transparent;
+        font-size:1.8rem;
+        cursor:pointer;
+    }
+    .nav_toggle-btn svg{
+        color:var(--color-gray-100);
+    }
+    .nav_links{
+        position:absolute;
+        top:100%;
+        right:0;
+        flex-direction:column;
+        gap:0; /* gap between child elements  */
+       /* perspective:400px; for animation of nav_links . refer .nav_links li{*/
+    }
+
+    /* display of rotated square on click of NavLink .*/ 
+    .active-nav, .active-nav::after{
+        display:none;
+    }
+
+    .nav_links li{
+        height : 4rem;
+        width:100%;
+        box-shadow: -2rem 2rem 5rem rgba(0,0,0,0.4);
+       /* animation: navAnimation 600ms ease forwards; /*for animation - when the nav menu is shown, there is a gradual dropdown, with an animated effect   * /
+        transform : rotate(90deg);/* for animation * /
+        opacity:0;
+        transform-origin : top; /* for animation */
+    }
+
+    .nav_links li a{
+        background-color:var(--color-primary);
+        height:100%;
+        width:100%;
+        display:flex;
+        align-items:center;
+        padding:1rem 5rem 1rem 3rem;
+
+    }
+
+    .show_nav{
+        display:flex;
+    }
+    .hide_Nav{
+        display: none;
+    }
+}
+
